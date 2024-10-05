@@ -1,8 +1,11 @@
 # Spotify Data Pipeline using Snowflake, AWS, Python, Tableau
 
-## Overview
+## **Overview** 
 
-### This project demonstrates an end-to-end data pipeline using the Spotify API, AWS services (S3, Lambda, EventBridge, IAM, CloudWatch), Snowflake as a data warehouse, and Tableau for data visualization and analytics. The pipeline is orchestrated using AWS Lambda and EventBridge, with logs and monitoring handled by CloudWatch.
+This project demonstrates an End-to-End Data Pipeline using the **Spotify API**, 
+**AWS services (S3, Lambda, EventBridge, IAM, CloudWatch)**, **Snowflake** as a data warehouse, 
+and **Tableau** for data visualization and analytics. 
+The pipeline is orchestrated using AWS Lambda and EventBridge, with logs and monitoring handled by **CloudWatch**.
 
 ## Project Architecture
 ![End-To-End Project Architecture](https://github.com/Adwait0043/spotify-end-to-end-data-engineering-project-using-aws-snowflake/blob/main/End-to-End-Architecture.png)
@@ -54,19 +57,26 @@ Market Analysts: To identify emerging trends and inform strategic decisions.
 
 ## Challenges Faced
 **1. Handling API Rate Limits**
-Issue: The Spotify API imposes rate limits on the number of requests that can be made within a specific timeframe, which can hinder data extraction efforts.
-Solution:
-    -- Rate Limiting Logic: Implemented exponential backoff strategies within AWS Lambda functions to gracefully handle rate limit responses and retry requests as necessary.
-    -- Batch Requests: Optimized data extraction by batching requests where possible, reducing the overall number of API calls and adhering to rate limits more effectively.
+
+**Issue:** The Spotify API imposes rate limits on the number of requests that can be made within a specific timeframe, which can hinder data extraction efforts.
+
+**Solution:**
+1. Rate Limiting Logic: Implemented exponential backoff strategies within AWS Lambda functions to gracefully handle rate limit responses and retry requests as necessary.
+2. Batch Requests: Optimized data extraction by batching requests where possible, reducing the overall number of API calls and adhering to rate limits more effectively.
 
 **2. ETL Process Optimization**
-Issue: Processing large volumes of data efficiently to ensure timely transformation and loading into Snowflake without incurring excessive costs or delays.
-Solution:
-    -- Lambda Function Optimization: Fine-tuned memory and timeout settings for AWS Lambda functions to balance performance and cost, ensuring rapid data processing without over-provisioning resources.
-    -- Parallel Processing: Leveraged concurrent executions within Lambda to handle multiple data segments simultaneously, speeding up the ETL process.
+
+
+**Issue:** Processing large volumes of data efficiently to ensure timely transformation and loading into Snowflake without incurring excessive costs or delays.
+
+**Solution:** 
+1. Lambda Function Optimization: Fine-tuned memory and timeout settings for AWS Lambda functions to balance performance and cost, ensuring rapid data processing without over-provisioning resources.
+2. Parallel Processing: Leveraged concurrent executions within Lambda to handle multiple data segments simultaneously, speeding up the ETL process.
 
 **3. Data Quality Issues**
-Issue: Ensuring the accuracy, consistency, and cleanliness of the data extracted from Spotify to maintain high-quality analytics and reporting.
-Solution:
-    -- Data Validation: Implemented validation checks within transformation scripts to identify and rectify inconsistencies, missing values, or anomalies in the data.
-    -- Error Handling: Added robust error handling mechanisms to capture and log data quality issues, facilitating timely resolution and maintaining data integrity.
+
+**Issue:** Ensuring the accuracy, consistency, and cleanliness of the data extracted from Spotify to maintain high-quality analytics and reporting.
+
+**Solution:**
+1. Data Validation: Implemented validation checks within transformation scripts to identify and rectify inconsistencies, missing values, or anomalies in the data.
+2. Error Handling: Added robust error handling mechanisms to capture and log data quality issues, facilitating timely resolution and maintaining data integrity.
